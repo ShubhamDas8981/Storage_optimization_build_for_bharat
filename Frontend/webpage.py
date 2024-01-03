@@ -1,29 +1,37 @@
 import streamlit as st
 import requests
 
-# Backend URL
-BACKEND_URL = "http://127.0.0.1:5000"  # Replace this with your backend server URL
+def send_to_backend(pincodes):
+    backend_url = 'http://127.0.0.1:5000/process_pincodes'  # Backend URL
 
-# Function to send the pincode to the backend for retrieval
-def retrieve_pincode_from_backend(pincode):
-    response = requests.post(f"{BACKEND_URL}/retrieve_pincode", json={"pincode": pincode})
-    return response.json()
+    # Sending a POST request to the backend
+    response = requests.post(backend_url, json={'pincodes': pincodes})
 
-# Streamlit interface
+    if response.ok:
+        st.success("Pincodes sent successfully to backend!")
+    else:
+        st.error("Failed to send pincodes to backend.")
+
 def main():
-    st.title("Pincode Serviceability Checker")
+    st.title('Pin Code Input')
+    st.write("Enter multiple pin codes separated by commas (e.g., 110001, 400001)")
 
-    st.subheader("Enter Pincode to Search:")
-    pincode = st.text_input("Enter Pincode:")
+    # Input field for the user to enter pin codes
+    pin_input = st.text_input("Enter pin codes:")
 
-    # Button to trigger the retrieval process
-    if st.button("Search"):
-        if pincode:
-            result = retrieve_pincode_from_backend(pincode)
-            st.success(result["message"])
-            st.success("Thank for visiting")
+    if st.button("Submit"):
+        # Splitting the entered text into individual pincodes
+        pincodes = [code.strip() for code in pin_input.split(',') if code.strip()]
+        
+        # Check if all pincodes are 6 digits
+        if all(len(pin) == 6 for pin in pincodes):
+            send_to_backend(pincodes)
         else:
-            st.warning("Please enter a pincode to search.")
+            st.warning("Please enter valid pin codes (6 digits each).")
 
 if __name__ == "__main__":
     main()
+
+
+
+
