@@ -3,3 +3,4 @@ Problem Statement Details THEME: Retail &amp; Logistics  PROBLEM NAME: Optimal s
 
 Date 29/12/23, time 22:12, connecting backend to frontend,frontend(python,streamlit),backend(python,flask)
 Date 30/12/23, time 21:29, connecting with mysql database
+Date 3/1/2014, time 16:43, update database connection with compressed sparse matrix concept in optimize folder
