@@ -16,12 +16,13 @@ def contact():
 
 @app.route('/submit_buyer', methods=['POST'])
 def submit_buyer():
-    buyer_id = request.form.get('buyerId')
-    buyer_pass = request.form.get('buyerPass')
-    buyer_pincode = request.form.get('buyerPincode')
-    print(buyer_id)
-    print(buyer_pass)
-    print(buyer_pincode)
+    data=request.json #retrieve JSON data
+    buyer_id = data.get('buyerId')
+    buyer_pass = data.get('buyerPass')
+    buyer_pincode = data.get('buyerPincode')
+    print("Buyer ID: ",buyer_id)
+    print("Buyer Password: ",buyer_pass)
+    print("Buyer Searching Pin code: ",buyer_pincode)
     # Process data and prepare a response
     response = {
         "status": "success",
@@ -35,11 +36,17 @@ def submit_buyer():
 
 @app.route('/submit_merchant', methods=['POST'])
 def submit_merchant():
-    merchant_name = request.form.get('merchantName')
-    merchant_id = request.form.get('merchantid')
-    merchant_pass = request.form.get('merchantpass')
-    pincode_count = request.form.get('pincodeCount')
-    pincode_list = [request.form.get(f'pincode_{i}') for i in range(1, int(pincode_count)+1)]
+    data=request.json # retrieve json data
+    merchant_name = data.get('merchantName')
+    merchant_id = data.get('merchantid')
+    merchant_pass = data.get('merchantpass')
+    pincode_count = data.get('pincodeCount')
+    #pincode_list = [data.get(f'pincode_{i}') for i in range(1, int(pincode_count)+1)]
+    pincode_list = data.get('pincodeList', [])  # Retrieve the pincodeList directly
+    print("Merchant Name: ",merchant_name)
+    print("Merchant ID: ",merchant_id)
+    print("Merchant Password: ",merchant_pass)
+    print("Merchant Pincodes: ",pincode_list)
 
     # Process data and prepare a response
     response = {

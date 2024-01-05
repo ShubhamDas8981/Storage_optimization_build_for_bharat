@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const data = {
-      merchantName,
-      merchantid,
-      merchantpass,
-      pincodeCount,
-      pincodeList
+      merchantName: merchantName,
+      merchantid: merchantid,
+      merchantpass: merchantpass,
+      pincodeCount: parseInt(pincodeCount),
+      pincodeList: pincodeList
     };
 
     fetch('/submit_merchant', {
@@ -76,6 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => {
       console.error('Error:', error);
     });
+  });
+  // Add the dynamic pincode input generation script here
+  document.getElementById("pincodeCount").addEventListener("input", function() {
+    const pincodeCount = parseInt(this.value);
+    const pincodeInputs = document.getElementById("pincodeInputs");
+
+    // Clear previous inputs
+    pincodeInputs.innerHTML = "";
+
+    // Generate new pincode input fields
+    for (let i = 1; i <= pincodeCount; i++) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.id = `pincode_${i}`;
+        input.placeholder = `Enter Pin Code ${i}`;
+        pincodeInputs.appendChild(input);
+    }
   });
 });
 
