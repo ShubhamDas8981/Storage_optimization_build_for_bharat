@@ -95,5 +95,128 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// below part is still required to work 
+/*
+document.addEventListener("DOMContentLoaded", function () {
+  // Buyer Section
+  document.getElementById("buyerBtn").addEventListener("click", function () {
+    document.querySelector('.card').style.display = 'none';
+    document.querySelector('.buyer-form').style.display = 'block';
+  });
 
+  async function submitBuyer() {
+    const buyerId = document.getElementById("buyerId").value.trim();
+    const buyerPass = document.getElementById("buyerPass").value.trim();
+    const buyerPincode = document.getElementById("buyerPincode").value.trim();
 
+    const data = {
+      buyerId,
+      buyerPass,
+      buyerPincode
+    };
+
+    try {
+      const response = await fetch('/submit_buyer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.json();
+        if (errorMessage.status === 'error') {
+          alert(errorMessage.message);
+        }
+        return;
+      }
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle success scenario here if needed
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle other errors or exceptions here
+    }
+  }
+
+  document.getElementById("buyerSubmitBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    submitBuyer();
+  });
+
+  // Merchant Section
+  document.getElementById("merchantBtn").addEventListener("click", function () {
+    document.querySelector('.card').style.display = 'none';
+    document.querySelector('.merchant-form').style.display = 'block';
+  });
+
+  async function submitMerchant() {
+    const merchantName = document.getElementById("merchantName").value.trim();
+    const merchantid = document.getElementById("merchantid").value.trim();
+    const merchantpass = document.getElementById("merchantpass").value.trim();
+    const pincodeCount = document.getElementById("pincodeCount").value;
+
+    const pincodeList = [];
+    for (let i = 1; i <= pincodeCount; i++) {
+      const pincode = document.getElementById(`pincode_${i}`).value.trim();
+      pincodeList.push(pincode);
+    }
+
+    const data = {
+      merchantName,
+      merchantid,
+      merchantpass,
+      pincodeCount: parseInt(pincodeCount),
+      pincodeList
+    };
+
+    try {
+      const response = await fetch('/submit_merchant', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.json();
+        if (errorMessage.status === 'error') {
+          alert(errorMessage.message);
+        }
+        return;
+      }
+
+      const responseData = await response.json();
+      console.log(responseData); // Handle success scenario here if needed
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle other errors or exceptions here
+    }
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    submitMerchant();
+  });
+
+  // Add the dynamic pincode input generation script here
+  document.getElementById("pincodeCount").addEventListener("input", function () {
+    const pincodeCount = parseInt(this.value);
+    const pincodeInputs = document.getElementById("pincodeInputs");
+
+    // Clear previous inputs
+    pincodeInputs.innerHTML = "";
+
+    // Generate new pincode input fields
+    for (let i = 1; i <= pincodeCount; i++) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = `pincode_${i}`;
+      input.placeholder = `Enter Pin Code ${i}`;
+      pincodeInputs.appendChild(input);
+    }
+  });
+});
+*/
