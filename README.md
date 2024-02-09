@@ -63,7 +63,7 @@ i.e. merchants define the pincodes they serve and buyer apps verify whether a pa
 ## How to Install and Run the Project
 * Clone the repository:
     ```bash
-    git clone https://github.com/your-username/pdf-interacter.git
+    git clone git@github.com:ShubhamDas8981/Storage_optimization_build_for_bharat.git
     ```
 * Create and Activate the Virtual Environment:
     ```bash
