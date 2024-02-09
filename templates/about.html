@@ -1,0 +1,36 @@
+<!-- about.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>About Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Project</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </div>
+
+    
+    <div class="about-section" id="about-section">
+        <div class="content">
+            <h1>About Pincode Serviceability Checker</h1>
+            <p>Welcome to Pincode Serviceability Checker, where convenience meets efficiency. Our platform serves as a bridge between buyers and merchants, simplifying the process of checking service availability based on pin codes.</p>
+
+            <h2>Mission:</h2>
+            <p>Our mission is to streamline the serviceability verification process, providing a user-friendly platform for businesses to manage service areas and enabling buyers to find merchants catering to specific locations.</p>
+
+            <h2>How It Works:</h2>
+            <p>Merchants register and input their serviceable pin codes, allowing buyers to check service availability in desired locations. Buyers submit their details to discover merchants available in specified areas.</p>
+        </div>
+    </div>
+    
+   
+</body>
+
+</html>

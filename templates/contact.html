@@ -1,0 +1,46 @@
+<!-- contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Project</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </div>
+
+    
+    <div class="contact-section" id="contact-section">
+        <div class="content">
+            <h1>Contact Us</h1>
+
+            <div class="developer-card">
+                <img src="{{ url_for('static', filename='Shubham.jpg') }}" alt="Developer 1">
+                <h2>Shubham Das</h2>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/shubham-das-471966240" target="_blank">Shubham's LinkedIn</a></p>
+                <p>GitHub: <a href="https://github.com/ShubhamDas8981" target="_blank">Shubham's GitHub</a></p>
+                <p>Email:<a href="mailto:codingshubham.in@gmail.com"> codingshubham.in@gmail.com</a></p>
+            </div>
+
+            <div class="developer-card">
+                <img src="{{ url_for('static', filename='Yash.jpg') }}" alt="Developer 2">
+                <h2><span>Yash Mukhopadhyay</span></h2>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/yash-mukhopadhyay-286183225/" target="_blank">Yash's LinkedIn</a></p>
+                <p>GitHub: <a href="https://github.com/yash2870" target="_blank">Yash's GitHub</a></p>
+                <p>Email:<a href="mailto:yashmukherjee62@gmail.com">yashmukherjee62@gmail.com</a> </p>
+            
+        </div>
+    </div>
+
+
+    
+</body>
+
+</html>

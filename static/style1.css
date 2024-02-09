@@ -1,0 +1,452 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #6D00C7, #FFD500, #00B2FF, #FF2020);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+  }
+  
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .navbar a:hover {
+    color: red;
+  }
+  
+  .content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .about-section .content,
+  .contact-section .content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(236, 71, 6, 0.664);
+  }
+  
+  
+  .card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(236, 71, 6, 0.664);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(112, 5, 5, 0.952);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #3809e0;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  
+  /* Add this to your existing CSS or replace the existing styles */
+  .dropdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .dropbtn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover {
+    background-color: #3809e0;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: red;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  textarea {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /*  login button */
+  .login-btn {
+    position: fixed;
+    top: 2px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .login-btn:hover {
+    background-color: #3809e0;
+  }
+  
+  /* Add this style for the dropdown in the modal */
+  #userType {
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+  
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5px auto;
+    /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    padding: 50px;
+  }
+  
+  /* The Close Button */
+  .close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  /* Close button on hover */
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0)
+    }
+  
+    to {
+      -webkit-transform: scale(1)
+    }
+  }
+  
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
+    }
+  
+    to {
+      transform: scale(1)
+    }
+  }
+
+  /* Styles for the about page */
+.about-section .content,
+.contact-section .content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(236, 71, 6, 0.664);
+}
+
+.about-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(236, 71, 6, 0.664);
+  text-align: center;
+  margin: 20px 0;
+}
+
+.about-section h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  text-shadow: 1px 3px 3px rgb(97, 80, 80);
+  animation: fadeInUp 1s ease-in-out;
+}
+.about-section h2 {
+  color: #3809e0;
+  animation: fadeIn 1s ease-in-out;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0.3);
+}
+.about-section p {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.6;
+
+  animation: fadeIn 1s ease-in-out;
+}
+.about-section p:hover {
+  color: #24b307;
+}
+/* Define the animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Styles for the contact page */
+
+.contact-section .content {
+  text-align: center;
+  max-width: 1200px;
+  /* Adjust as needed */
+  margin: 0 auto;
+
+  padding: 0px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(236, 71, 6, 0.664);
+  max-height: 550px;
+
+}
+
+.contact-section h1 {
+  color: #333;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2em;
+  animation: fadeInUp 1s ease-in-out;
+  text-shadow: 1px 3px 3px rgb(97, 80, 80);
+}
+
+.developer-card h2 {
+  color: #3809e0;
+  animation: fadeIn 1s ease-in-out;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0.3);
+}
+
+.developer-card p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+  animation: fadeIn 1s ease-in-out;
+  /* Add fadeIn animation */
+}
+.developer-card p:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+.developer-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  box-shadow: 10px 2px 0px rgba(224, 154, 126, 0.726);
+}
+
+.developer-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: -10px;
+  align-items: center;
+  text-align: center;
+  max-width: 300px;
+  flex: 1;
+}
+
+.developer-card img {
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: 2px 5px 10px rgba(15, 15, 15, 0.863);
+}
+
+.developer-card a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.developer-card a:hover {
+  color: #3809e0;
+}
+
+/* Define the animations for the contact page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
