@@ -83,7 +83,7 @@ i.e. merchants define the pincodes they serve and buyer apps verify whether a pa
     ```
 
 ## Working of the Application:
-![FlowChart](Storage_optimization_build_for_bharat/Flowchart.png)
+![FlowChart](Flowchart.png)
 
 ## Purpose of the Project
 <p>The purpose of the provided project appears to be the development of a web application that facilitates interaction between merchants and buyers based on pincode-based serviceability. Here's a breakdown of its key purposes:
