@@ -1,6 +1,6 @@
 # 🌍 Pincode based Serviceability checker with optimal storage & retrieval in m*n sparse matrix
 Quote:*"If you don't understand what problem anyone want to solve,just try to understand what is getting input and output in that Computational box"*
-## Project Active Website Link: http://34.171.143.92:8080
+## Project Active Website Link: http://34.132.50.54:8080/
 ## Project Description
  <p>Pincode based serviceability allows merchants to define the pincodes where they can deliver their products & services,
 i.e. merchants define the pincodes they serve and buyer apps verify whether a particular pincode (of buyer) can be served by any of the available merchants;</p>
